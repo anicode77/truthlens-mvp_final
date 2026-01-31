@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import * as pdfjsLib from 'pdfjs-dist'
 import './App.css'
 
+
 // PDF.js worker for Vite
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.mjs',
@@ -23,7 +24,9 @@ interface AnalyzeResponse {
   perception_explanation: string
 }
 
-const API_BASE = '/api'
+const API_BASE = 'https://truthlens-backend-production-cf27.up.railway.app'
+
+
 
 function getTechniqueClass(technique: string): string {
   const t = technique.toLowerCase()
@@ -230,7 +233,10 @@ function App() {
         <a href="/" className="site-brand" aria-label="TruthLens home">
           <img src="/logo.png" alt="" className="site-logo" />
           <div className="site-brand-text">
-            <span className="site-name">TruthLens</span>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+              <span className="site-name">TruthLens</span>
+              <span className="powered-by">Powered by YuktiX</span>
+            </div>
             <span className="site-tagline">Language has power. See it clearly.</span>
           </div>
         </a>
@@ -344,7 +350,10 @@ function App() {
             <a href="/" className="site-brand site-brand-small" aria-label="TruthLens home">
               <img src="/logo.png" alt="" className="site-logo" />
               <div className="site-brand-text">
-                <span className="site-name">TruthLens</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <span className="site-name">TruthLens</span>
+                  <span className="powered-by">Powered by YuktiX</span>
+                </div>
                 <span className="site-tagline">Language has power. See it clearly.</span>
               </div>
             </a>

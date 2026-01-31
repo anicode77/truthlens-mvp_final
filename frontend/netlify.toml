@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/analyze"
+  to = "https://truthlens-backend-production-cf27.up.railway.app/analyze"
+  status = 200
+  force = true
+  methods = ["POST", "OPTIONS"]

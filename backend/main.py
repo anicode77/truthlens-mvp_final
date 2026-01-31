@@ -10,10 +10,14 @@ app = FastAPI(
     description="Analyzes how language influences perception. Does not verify truth or intent.",
     version="0.1"
 )
+@app.get("/")
+def root():
+    return {"status": "TruthLens backend is alive"}
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

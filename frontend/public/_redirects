@@ -1,0 +1,2 @@
+/analyze  https://truthlens-backend-production-cf27.up.railway.app/analyze  200!
+/analyze/*  https://truthlens-backend-production-cf27.up.railway.app/analyze  200!
