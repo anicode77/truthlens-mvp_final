@@ -414,24 +414,30 @@ function App() {
               </div>
               {showWhyMatters && result!.detected_techniques.length > 0 && (
                 <div className="why-matters-panel">
-                  <div className="why-matters-item">
-                    <h3 className="why-matters-title">Why urgency can reduce reflection</h3>
-                    <p className="why-matters-text">
-                      Time pressure cues like "act now" or "limited time" can trigger immediate responses, bypassing careful consideration. This urgency can make readers feel they must decide quickly, potentially reducing their ability to fully evaluate information or consider alternatives.
-                    </p>
-                  </div>
-                  <div className="why-matters-item">
-                    <h3 className="why-matters-title">Why emotional framing can heighten reactions</h3>
-                    <p className="why-matters-text">
-                      Language that appeals to emotions—whether fear, excitement, or outrage—can amplify readers' responses. Emotional framing can make content feel more compelling or urgent than it might be, potentially overriding logical analysis and leading to more reactive decision-making.
-                    </p>
-                  </div>
-                  <div className="why-matters-item">
-                    <h3 className="why-matters-title">Why absolute language can limit nuance</h3>
-                    <p className="why-matters-text">
-                      Words like "always," "never," or "all" present ideas as definitive and unchanging. This can oversimplify complex topics, making nuanced discussions difficult. Absolute language can create false dichotomies and discourage readers from considering middle ground or alternative perspectives.
-                    </p>
-                  </div>
+                  {result!.detected_techniques.some(t => t.toLowerCase().includes('urgency')) && (
+                    <div className="why-matters-item">
+                      <h3 className="why-matters-title">Why urgency can reduce reflection</h3>
+                      <p className="why-matters-text">
+                        Time pressure cues like "act now" or "limited time" can trigger immediate responses, bypassing careful consideration. This urgency can make readers feel they must decide quickly, potentially reducing their ability to fully evaluate information or consider alternatives.
+                      </p>
+                    </div>
+                  )}
+                  {result!.detected_techniques.some(t => t.toLowerCase().includes('emotional')) && (
+                    <div className="why-matters-item">
+                      <h3 className="why-matters-title">Why emotional framing can heighten reactions</h3>
+                      <p className="why-matters-text">
+                        Language that appeals to emotions—whether fear, excitement, or outrage—can amplify readers' responses. Emotional framing can make content feel more compelling or urgent than it might be, potentially overriding logical analysis and leading to more reactive decision-making.
+                      </p>
+                    </div>
+                  )}
+                  {result!.detected_techniques.some(t => t.toLowerCase().includes('absolute')) && (
+                    <div className="why-matters-item">
+                      <h3 className="why-matters-title">Why absolute language can limit nuance</h3>
+                      <p className="why-matters-text">
+                        Words like "always," "never," or "all" present ideas as definitive and unchanging. This can oversimplify complex topics, making nuanced discussions difficult. Absolute language can create false dichotomies and discourage readers from considering middle ground or alternative perspectives.
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
             </section>
