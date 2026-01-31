@@ -66,6 +66,20 @@
   letter-spacing: 0.01em;
 }
 
+.powered-by {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-soft);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.results-header .powered-by {
+  font-size: 0.75rem;
+}
+
 .site-brand-small .site-logo {
   height: 40px;
 }
