@@ -1,0 +1,183 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root,
+[data-theme="dark"] {
+  --bg: #0E0E10;
+  --bg-mid: #1A1A1D;
+  --surface: #1A1A1D;
+  --surface-elevated: #222225;
+  --surface-card: #1E1E22;
+  --border: #2A2A2E;
+  --border-strong: #3A3A3F;
+  --text: #F5F5FA;
+  --text-muted: #CFCFE1;
+  --text-soft: #9B9BAE;
+  --accent: #6C63FF;
+  --accent-secondary: #7A5CFA;
+  --accent-dim: rgba(108, 99, 255, 0.15);
+  --accent-glow: rgba(108, 99, 255, 0.2);
+  --purple: #7A5CFA;
+  --purple-dim: rgba(122, 92, 250, 0.12);
+  --urgency: #E57373;
+  --urgency-bg: rgba(229, 115, 115, 0.18);
+  --emotional: #B39DDB;
+  --emotional-bg: rgba(179, 157, 219, 0.18);
+  --absolute: #64B5F6;
+  --absolute-bg: rgba(100, 181, 246, 0.18);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --theme-toggle-bg: #1E1E22;
+  --theme-toggle-border: #2A2A2E;
+  --theme-toggle-icon: #CFCFE1;
+}
+
+[data-theme="light"] {
+  --bg: #F5F5FA;
+  --bg-mid: #EBEBF0;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --border: #E0E0E8;
+  --border-strong: #CFCFE1;
+  --text: #1A1A1D;
+  --text-muted: #4A4A55;
+  --text-soft: #6B6B7A;
+  --accent: #6C63FF;
+  --accent-secondary: #7A5CFA;
+  --accent-dim: rgba(108, 99, 255, 0.1);
+  --accent-glow: rgba(108, 99, 255, 0.15);
+  --purple: #7A5CFA;
+  --purple-dim: rgba(122, 92, 250, 0.08);
+  --urgency: #C62828;
+  --urgency-bg: rgba(198, 40, 40, 0.1);
+  --emotional: #7B1FA2;
+  --emotional-bg: rgba(123, 31, 162, 0.1);
+  --absolute: #1565C0;
+  --absolute-bg: rgba(21, 101, 192, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --theme-toggle-bg: #fff;
+  --theme-toggle-border: #E0E0E8;
+  --theme-toggle-icon: #4A4A55;
+}
+
+:root {
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --shadow-glow: 0 0 32px var(--accent-glow);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease, color 0.2s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Background gradient - different for light theme */
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Soft lens/prism effect — clarity through analysis */
+[data-theme="dark"] .app::before,
+:root .app::before {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(108, 99, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(122, 92, 250, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(108, 99, 255, 0.04) 0%, transparent 50%);
+}
+
+[data-theme="light"] .app::before {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(108, 99, 255, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(122, 92, 250, 0.03) 0%, transparent 50%);
+}
+
+/* Soft lens/prism visual — clarity through analysis (replaces neon wave) */
+.lens-effect {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lens-effect::before,
+.lens-effect::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .lens-effect::before {
+  width: min(60vw, 500px);
+  height: min(50vw, 400px);
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.25) 0%, rgba(122, 92, 250, 0.1) 40%, transparent 70%);
+}
+
+[data-theme="dark"] .lens-effect::after {
+  width: min(40vw, 320px);
+  height: min(35vw, 280px);
+  bottom: 15%;
+  right: 10%;
+  background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.12) 0%, transparent 60%);
+}
+
+[data-theme="light"] .lens-effect::before {
+  width: min(55vw, 450px);
+  height: min(45vw, 360px);
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.12) 0%, rgba(122, 92, 250, 0.06) 40%, transparent 70%);
+}
+
+[data-theme="light"] .lens-effect::after {
+  width: min(35vw, 280px);
+  height: min(30vw, 240px);
+  bottom: 18%;
+  right: 12%;
+  background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.08) 0%, transparent 60%);
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 4rem;
+}
+
+@media (min-width: 900px) {
+  .app {
+    padding: 2.5rem 3rem 4rem;
+  }
+}
