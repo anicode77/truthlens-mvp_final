@@ -320,8 +320,9 @@ Cost-effective for MVP phase
 
 
 ---
-##Demo link (hosted app)
-aquamarine-dodol-6dc985.netlify.app
+## Demo link (hosted app)
+
+https://aquamarine-dodol-6dc985.netlify.app/
 
 ## Team
 
